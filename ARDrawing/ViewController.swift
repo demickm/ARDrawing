@@ -36,6 +36,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, colorPalleteDelegate 
         }
     }
     
+    @IBAction func clearAll(_ sender: Any) {
+        self.sceneView.scene.rootNode.enumerateChildNodes( { (node, _) in
+                node.removeFromParentNode()
+        })
+    }
+    
+    
     @IBAction func draw(_ sender: Any) {
     }
     
