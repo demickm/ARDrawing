@@ -12,6 +12,7 @@
 		5D3C3CE91F8355A0007E2E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D3C3CE71F8355A0007E2E2A /* Main.storyboard */; };
 		5D3C3CEB1F8355A0007E2E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D3C3CEA1F8355A0007E2E2A /* Assets.xcassets */; };
 		5D3C3CEE1F8355A0007E2E2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D3C3CEC1F8355A0007E2E2A /* LaunchScreen.storyboard */; };
+		FD606E031F9BCC0700E4A5F4 /* ColorPalleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD606E021F9BCC0700E4A5F4 /* ColorPalleteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5D3C3CEA1F8355A0007E2E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D3C3CED1F8355A0007E2E2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D3C3CEF1F8355A0007E2E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD606E021F9BCC0700E4A5F4 /* ColorPalleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalleteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		5D3C3CE21F8355A0007E2E2A /* ARDrawing */ = {
 			isa = PBXGroup;
 			children = (
+				FD606E021F9BCC0700E4A5F4 /* ColorPalleteViewController.swift */,
 				5D3C3CE31F8355A0007E2E2A /* AppDelegate.swift */,
 				5D3C3CE51F8355A0007E2E2A /* ViewController.swift */,
 				5D3C3CE71F8355A0007E2E2A /* Main.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD606E031F9BCC0700E4A5F4 /* ColorPalleteViewController.swift in Sources */,
 				5D3C3CE61F8355A0007E2E2A /* ViewController.swift in Sources */,
 				5D3C3CE41F8355A0007E2E2A /* AppDelegate.swift in Sources */,
 			);
@@ -275,11 +279,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66H4JCAA7P;
+				DEVELOPMENT_TEAM = 5PE67HY7D9;
 				INFOPLIST_FILE = ARDrawing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Demick.McMullin.ARDrawing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianMcMullin.ARDrawing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -291,11 +295,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 66H4JCAA7P;
+				DEVELOPMENT_TEAM = 5PE67HY7D9;
 				INFOPLIST_FILE = ARDrawing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Demick.McMullin.ARDrawing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ChristianMcMullin.ARDrawing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -9,26 +9,44 @@
 import UIKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, colorPalleteDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var draw: UIButton!
+    @IBOutlet var colorPaletteView: UIView!
+    @IBOutlet var colorButton: UIButton!
     
     let configuration = ARWorldTrackingConfiguration()
+    var selectedColor: UIColor = .red
+    var isColorPaletteOpen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideColorPalette()
         self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.sceneView.showsStatistics = true
         self.sceneView.session.run(configuration)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func colorButtonTapped(_ sender: UIButton) {
+        if isColorPaletteOpen {
+            hideColorPalette()
+        } else {
+            showColorPalette()
+        }
     }
-
+    
     @IBAction func draw(_ sender: Any) {
+    }
+    
+    func selectColor(_ sender: ColorPalleteViewController, color: UIColor) {
+        DispatchQueue.main.async {
+            self.selectedColor = color
+            self.colorButton.backgroundColor = color
+            if sender.viewIsShowing == false {
+                self.hideColorPalette()
+            }
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
@@ -44,7 +62,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
                 sphereNode.position = currentPositionOfCamera
                 self.sceneView.scene.rootNode.addChildNode(sphereNode)
-                sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = self.selectedColor
             } else {
                 let pointer = SCNNode(geometry: SCNSphere(radius: 0.01))
                 pointer.position = currentPositionOfCamera
@@ -55,10 +73,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     }
                 })
                 
-                pointer.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+                pointer.geometry?.firstMaterial?.diffuse.contents = self.selectedColor
                 self.sceneView.scene.rootNode.addChildNode(pointer)
                 
             }
+        }
+    }
+    
+    func hideColorPalette() {
+        UIView.animate(withDuration: 0.4) {
+            let transformHeight = self.colorPaletteView.frame.height
+            self.colorPaletteView.transform = CGAffineTransform(translationX: 0, y: transformHeight)
+        }
+    }
+    
+    func showColorPalette() {
+        UIView.animate(withDuration: 0.4) {
+            self.colorPaletteView.transform = CGAffineTransform(translationX: 0, y: 0)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toColorPalette" {
+            guard let destination = segue.destination as? ColorPalleteViewController else { return }
+            destination.delegate = self
         }
     }
 }
